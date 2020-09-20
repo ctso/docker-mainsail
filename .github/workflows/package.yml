@@ -6,6 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build and Publish
-        env:
-          GITHUB_PACKAGE_TOKEN: ${{ secrets.GITHUB_PACKAGE_TOKEN }}
         run: ./.github/scripts/build_publish.sh
