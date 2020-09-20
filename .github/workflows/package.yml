@@ -6,4 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build and Publish
-        run: ./.github/scripts/build_publish.sh
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ctso/docker-mainsail/mainsail
+          tag_with_ref: true
